@@ -13,7 +13,7 @@ bool arrayEq(int* a, int* b, int len) {
     int i;
     for(i=0; i<len; i++)
         if (a[i] != b[i])
-         return false;
+            return false;
     return true;
 }
 
@@ -29,11 +29,11 @@ void merge(int* a, int low, int mid, int high) {
             b[k]=a[i];
             i++;
             k++;
-         continue;
+            continue;
         }
-      b[k]=a[j];
-      j++;
-      k++;
+        b[k]=a[j];
+        j++;
+        k++;
     }
 
     while(i<=mid) {
@@ -55,10 +55,10 @@ void merge(int* a, int low, int mid, int high) {
 void mergeSort(int* a, int low, int high) {
     if(low>=high) return;
     
-   int mid=(low+high)/2;
-   mergeSort(a,low,mid);
-   mergeSort(a,mid+1,high);
-   merge(a,low,mid,high);
+    int mid=(low+high)/2;
+    mergeSort(a,low,mid);
+    mergeSort(a,mid+1,high);
+    merge(a,low,mid,high);
 }
 
 int main() {
