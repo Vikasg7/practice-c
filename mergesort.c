@@ -17,11 +17,10 @@ bool arrayEq(int* a, int* b, int len) {
     return true;
 }
 
-// TDD - Test Driven Development
 void merge(int* a, int low, int mid, int high) {
-    int i=low;
-    int j=mid+1;
-    int k=low;
+    int i = low;
+    int j = mid+1;
+    int k = low;
     int b[100];
     
     while(i<=mid && j<=high) {
@@ -48,7 +47,7 @@ void merge(int* a, int low, int mid, int high) {
         k++;
     }
     
-    for(i=low;i<=high;i++)
+    for(i=low; i<=high; i++)
         a[i]=b[i];
 }
 
@@ -63,9 +62,9 @@ void mergeSort(int* a, int low, int high) {
 
 int main() {
     int arr[] = {9, 4, 14, 4, 15, 6, 70};
-    int len = sizeof(arr) / sizeof(arr[0]);
+    int len = sizeof(arr)/sizeof(arr[0]);
         
-    mergeSort(arr,0,len-1);
+    mergeSort(arr, 0, len-1);
     
     int result[] = {4, 4, 6, 9, 14, 15, 70};
     assert(arrayEq(arr, result, len));
