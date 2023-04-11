@@ -54,8 +54,7 @@ bool isValid(char* str) {
         return false;
     }
 
-    if (!isEmpty(&S)) return false;
-    return true;
+    return isEmpty(&S);
 }
 
 int main() {
