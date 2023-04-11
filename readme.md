@@ -1,12 +1,6 @@
-# Today's Jobs
+# practice-c
+A Repo to practice programming in C language. 
 
-## Code Review
-- Code Refactoring
-- Branchless programming
-- Code testing with `assert()` 
-   ````C
-   int v = 1
-   assert(v == 1)
-   assert(v != 0)
-   ````
-- Array length inside a function VS in the scope where it is allocated eg. inside `main()` function.
+## Usage
+- Make sure `gcc` is in the PATH.
+- Press `CTRL + SHIFT + B` in the VS Code to compile and run the executable.
