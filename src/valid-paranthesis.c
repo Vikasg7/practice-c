@@ -10,11 +10,11 @@ struct stack {
   char* arr;
 };
 
-struct stack init(int len) {
-  struct stack S;
-  S.top = -1;
-  S.len = len;
-  S.arr = (char*) malloc(len * sizeof(char));
+struct stack* init(int len) {
+  struct stack* S = (struct stack*) malloc(sizeof(struct stack*));
+  S->top = -1;
+  S->len = len;
+  S->arr = (char*) malloc(len * sizeof(char));
   return S;
 }
 
@@ -31,32 +31,36 @@ char pop(struct stack* S) {
   return c;
 }
 
+char peek(struct stack* S) {
+  return S->arr[S->top];
+}
+
 bool isEmpty(struct stack* S) {
   return S->top == -1;
 }
 
 bool isValid(char* str) {
   int len = strlen(str);
-  struct stack S = init(len);
+  struct stack* S = init(len);
   
   for (int i = 0; i < len; i++) {
     switch (str[i]) {
-      case '(': push(&S, ')'); break;
-      case '{': push(&S, '}'); break;
-      case '[': push(&S, ']'); break;
+      case '(': push(S, ')'); break;
+      case '{': push(S, '}'); break;
+      case '[': push(S, ']'); break;
       default:
-      if (isEmpty(&S) || pop(&S) != str[i])
+      if (isEmpty(S) || pop(S) != str[i])
         return false;
     }
   }
 
-  return isEmpty(&S);
+  return isEmpty(S);
 }
 
 int main() {
-  assert(isValid("{}([]") == 0);
-  assert(isValid("{}()[]") == 1);
-  assert(isValid("{}([") == 0);
-  assert(isValid("{}(]") == 0);
+  assert(!isValid("{}([]"));
+  assert(!isValid("{}(["));
+  assert(!isValid("{}(]"));
+  assert(isValid("{}()[]"));
   return 0;
 }
