@@ -11,7 +11,7 @@ struct stack {
 };
 
 struct stack* init(int len) {
-  struct stack* S = (struct stack*) malloc(sizeof(struct stack*));
+  struct stack* S = (struct stack*) malloc(sizeof(struct stack));
   S->top = -1;
   S->len = len;
   S->arr = (char*) malloc(len * sizeof(char));
