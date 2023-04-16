@@ -42,7 +42,7 @@ int peek(struct stack* S) {
 bool validateStackSequences(int* pushed, int pushedSize, int* popped, int poppedSize) {
   struct stack* s = init(pushedSize);
   int j = 0;
-  for(int i=0; i<pushedSize; i++)	{
+  for(int i=0; i<pushedSize; i++) {
     push(s, pushed[i]);
 
     while(!isEmpty(s) && peek(s)==popped[j]) {
